@@ -7,11 +7,6 @@ import (
 	"strconv"
 )
 
-var (
-	set map[int]bool
-	num int
-)
-
 func main() {
 	// init
 	file, err := os.Open("../input.txt")
@@ -21,10 +16,10 @@ func main() {
 		os.Exit(-1)
 	}
 
-	set = make(map[int]bool)
+	set := make(map[int]bool)
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		num, _ = strconv.Atoi(scanner.Text())
+		num, _ := strconv.Atoi(scanner.Text())
 		// fmt.Println(num)
 		set[num] = true
 		if set[2020-num] {
